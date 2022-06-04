@@ -8,6 +8,7 @@
 [Action](https://github.com/alsatarysamah/basic-express-server/actions)
 
 # Person Route
+
 Method: GET
 
 Path: /person
