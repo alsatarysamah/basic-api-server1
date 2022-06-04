@@ -3,10 +3,10 @@
 
 name: Use Node.js ${{ matrix.node-version }}
 uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path:basic-express-server/package.json
+with:
+node-version: ${{ matrix.node-version }}
+cache: 'npm'
+cache-dependency-path: basic-express-server/package.json
 
 
 
@@ -16,15 +16,10 @@ uses: actions/setup-node@v2
   pull_request:
     branches: [ main,dev ]
 
- jobs:
+jobs:
   build:
 
-
-    runs-on: self-hosted    
-    defaults:
-       run:
-         working-directory: ./server/
-
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -41,4 +36,3 @@ uses: actions/setup-node@v2
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    
